@@ -6,7 +6,7 @@
 /*   By: majdahim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 16:28:40 by majdahim          #+#    #+#             */
-/*   Updated: 2021/09/29 16:33:04 by majdahim         ###   ########.fr       */
+/*   Updated: 2021/09/29 17:59:59 by majdahim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ void	timeprnt(char *str, int id);
 long	time_now_micro(void);
 int		prnterror(char *error, int exit);
 void	get_data(char **av);
+int		parsing(int ac, char **av);
 
 #endif

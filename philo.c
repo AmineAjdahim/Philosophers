@@ -6,39 +6,11 @@
 /*   By: majdahim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 17:38:58 by majdahim          #+#    #+#             */
-/*   Updated: 2021/09/29 16:11:24 by majdahim         ###   ########.fr       */
+/*   Updated: 2021/09/29 17:57:22 by majdahim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-int	parsing(int ac, char **av)
-{
-	int		i;
-	int		j;
-
-	if (ac != 5 && ac != 6)
-	{
-		prnterror("Error: syntax\n", 0);
-		return (0);
-	}
-	i = 1;
-	while (av[i])
-	{
-		j = 0;
-		while (av[i][j])
-		{
-			if (!ft_isdigit(av[i][j]))
-			{
-				printf("Error: syntax2\n");
-				return (0);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
 
 int	iinit(void)
 {
@@ -105,9 +77,11 @@ void	create_threads(void)
 	}
 }
 
-int checkphilo()
+int	checkphilo(void)
 {
-	int i,done;
+	int		i;
+	int		done;
+
 	while (1)
 	{
 		done = 0;
@@ -134,40 +108,10 @@ int checkphilo()
 
 int	main(int ac, char **av)
 {
-	// int		done;
-	// int		i;
-
 	parsing(ac, av);
 	get_data(av);
 	iinit();
 	create_threads();
 	checkphilo();
-	// while (1)
-	// {
-	// 	done = 0;
-	// 	i = 0;
-	// 	while (i < g_data.nb_philo)
-	// 	{
-	// 		if ((time_now_micro() - g_data.profile[i].last_time_eat)
-	// 			> g_data.tm_die * 1000)
-	// 		{
-	// 			timeprnt("is die", i + 1);
-	// 			return (1);
-	// 		}
-	// 		if (g_data.profile[i].nbr_time_eat != -1
-	// 			&& g_data.profile[i].nbr_time_eat + 1 >= g_data.nb_to_eat)
-	// 			done++;
-	// 		i++;
-	// 	}
-	// 	usleep(100);
-	// 	if (done == g_data.nb_philo)
-	// 		return (1);
-	// }
-	// i = 0;
-	// while (i < g_data.nb_philo)
-	// {
-	// 	pthread_join(g_data.philos[i], NULL);
-	// 	i++;
-	// }
 	return (0);
 }

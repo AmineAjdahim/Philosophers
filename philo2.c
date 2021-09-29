@@ -27,3 +27,31 @@ void	get_data(char **av)
 	if (av[5])
 		g_data.nb_to_eat = ft_atoi(av[5]);
 }
+
+int	parsing(int ac, char **av)
+{
+	int		i;
+	int		j;
+
+	if (ac != 5 && ac != 6)
+	{
+		prnterror("Error: syntax\n", 0);
+		return (0);
+	}
+	i = 1;
+	while (av[i])
+	{
+		j = 0;
+		while (av[i][j])
+		{
+			if (!ft_isdigit(av[i][j]))
+			{
+				printf("Error: syntax2\n");
+				return (0);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
